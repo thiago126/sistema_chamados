@@ -23,3 +23,5 @@ Route.get('/', () => {
 Route.post('/signup', 'UserController.signup')
 
 Route.post('/login', 'UserController.login')
+
+Route.post('/novoChamado', 'ChamadoController.novoChamado')
