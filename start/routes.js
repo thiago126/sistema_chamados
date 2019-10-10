@@ -30,3 +30,5 @@ Route.post('/novoChamado', 'ChamadoController.novoChamado')
 Route.get('/listarChamados', async() =>{
   return await Chamado.all()
 })
+
+Route.post('/aceitarChamado','ChamadoController.aceitarChamado')

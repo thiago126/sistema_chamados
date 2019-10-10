@@ -24,6 +24,26 @@ class ChamadoController {
         }
     }
 
+    async aceitarChamado({request, auth, response}){
+        try{
+            const chamado = request.all()
+            const user = await auth.getUser()
+
+            chamado.user_id = user.id
+            chamado.save()
+
+            return response.json({
+                status: 'sucess',
+                data: chamado
+            })
+
+        }catch(error){
+            return response.status(400).json({
+                status: 'error',
+                message: 'There was a problem accept the chamado, please try again later.'
+            })
+        }
+    }
 }
 
 module.exports = ChamadoController
