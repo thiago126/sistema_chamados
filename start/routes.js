@@ -21,16 +21,16 @@ Route.get('/', () => {
   return { greeting: 'Hello world in JSON' }
 })
 
-Route.post('/signup', 'UserController.signup')
+Route.post('/signup', 'UserController.signup').prefix( 'api')
 
-Route.post('/login', 'UserController.login')
+Route.post('/login', 'UserController.login').prefix('api')
 
-Route.post('/novoChamado', 'ChamadoController.novoChamado')
+Route.post('/novoChamado', 'ChamadoController.novoChamado').prefix('api')
 
 Route.get('/listarChamados', async() =>{
   return await Chamado.all()
-})
+}).prefix('api')
 
-Route.post('/aceitarChamado','ChamadoController.aceitarChamado')
+Route.post('/aceitarChamado','ChamadoController.aceitarChamado').prefix('api')
 
-Route.post('/fecharChamado','ChamadoController.fecharController.fecharChamado')
+Route.post('/fecharChamado','ChamadoController.fecharController.fecharChamado').prefix('api')
