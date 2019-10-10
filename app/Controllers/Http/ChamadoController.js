@@ -6,13 +6,13 @@ class ChamadoController {
     async novoChamado ({request, auth, response}){
 
         try{
-            const chamado = request.all()
-
-            const token = await auth.generate(chamado)
+            const data = request.all()
+            data.active = 1
+            const chamado = await Chamado.create(data)
 
             return response.json({
                 status: 'sucess',
-                data: token
+                data: chamado
             })
 
         }catch(error){
