@@ -44,6 +44,23 @@ class ChamadoController {
             })
         }
     }
+
+    async fecharChamado({request, response}){
+        try{
+            const chamado = request.all()
+            chamado.save()
+
+            return response.json({
+                status: 'sucess',
+                data: chamado
+            })
+        }catch(error){
+            return response.status(400).json({
+                status:'error',
+                message:'There was a problem close the chamado, please try again later.'
+            })
+        }
+    }
 }
 
 module.exports = ChamadoController

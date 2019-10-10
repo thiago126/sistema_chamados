@@ -32,3 +32,5 @@ Route.get('/listarChamados', async() =>{
 })
 
 Route.post('/aceitarChamado','ChamadoController.aceitarChamado')
+
+Route.post('/fecharChamado','ChamadoController.fecharController.fecharChamado')
