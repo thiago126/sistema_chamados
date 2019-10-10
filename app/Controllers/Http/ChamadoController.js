@@ -30,7 +30,7 @@ class ChamadoController {
             const user = await auth.getUser()
 
             chamado.user_id = user.id
-            chamado.save()
+            await chamado.save()
 
             return response.json({
                 status: 'sucess',
@@ -48,7 +48,8 @@ class ChamadoController {
     async fecharChamado({request, response}){
         try{
             const chamado = request.all()
-            chamado.save()
+            chamado.active = 0;
+            await chamado.save()
 
             return response.json({
                 status: 'sucess',
