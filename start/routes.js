@@ -15,6 +15,7 @@
 
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
+const Chamado = use('App/Models/Chamado')
 
 Route.get('/', () => {
   return { greeting: 'Hello world in JSON' }
@@ -25,3 +26,7 @@ Route.post('/signup', 'UserController.signup')
 Route.post('/login', 'UserController.login')
 
 Route.post('/novoChamado', 'ChamadoController.novoChamado')
+
+Route.get('/listarChamados', async() =>{
+  return await Chamado.all()
+})

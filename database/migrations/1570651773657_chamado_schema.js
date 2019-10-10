@@ -10,7 +10,7 @@ class ChamadoSchema extends Schema {
       table.string("name",80).notNullable()
       table.string("description",80).notNullable()
       table.boolean("active").notNullable()
-      table.integer('user_id').unsigned().notNullable()
+      table.integer('user_id').unsigned()
       table.timestamps()
     })
   }
