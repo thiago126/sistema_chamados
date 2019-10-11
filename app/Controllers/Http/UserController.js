@@ -3,17 +3,14 @@ const User = use('App/Models/User')
 
 class UserController {
 
-    async signup({request, auth, response}){
-        const userData = request.all()
+    async signup({request,response}){
+        const data = request.all()
 
         try{
-            const user = await User.create(userData)
-
-            const token = await auth.generate(user)
-
+            const user = await User.create(data)
             return response.json({
                 status: 'sucess',
-                data: token
+                data: user
             })
 
         }catch(error){
