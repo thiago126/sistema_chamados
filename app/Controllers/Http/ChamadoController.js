@@ -48,7 +48,8 @@ class ChamadoController {
 
     async fecharChamado({request, response}){
         try{
-            const chamado = request.all()
+            const id = request.only('id')
+            const chamado = await Chamado.find(id)
             chamado.active = 0;
             await chamado.save()
 

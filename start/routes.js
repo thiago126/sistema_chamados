@@ -33,4 +33,4 @@ Route.get('/listarChamados', async() =>{
 
 Route.post('/aceitarChamado','ChamadoController.aceitarChamado').prefix('api')
 
-Route.post('/fecharChamado','ChamadoController.fecharController.fecharChamado').prefix('api')
+Route.post('/fecharChamado','ChamadoController.fecharChamado').prefix('api')
