@@ -27,16 +27,15 @@ class ChamadoController {
     async aceitarChamado({request, auth, response}){
         try{
             let user = await auth.getUser()
-            console.log(user)
             const id = request.input('id')
-            console.log(id)
-            //const chamado = Chamado.find(id)
-            //chamado.user_id = user.id
-            //await chamado.save()
+            const chamado = await Chamado.find(id)
+            console.log(chamado.name)
+            chamado.user_id = user.id
+            await chamado.save()
 
             return response.json({
                 status: 'sucess',
-                data: 'chamado'
+                data: chamado
             })
 
         }catch(error){
