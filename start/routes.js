@@ -31,6 +31,6 @@ Route.get('/listarChamados', async() =>{
   return await Chamado.all()
 }).prefix('api')
 
-Route.post('/aceitarChamado','ChamadoController.aceitarChamado').prefix('api').middleware(['auth:jwt'])
+Route.post('/aceitarChamado','ChamadoController.aceitarChamado').prefix('api')
 
 Route.post('/fecharChamado','ChamadoController.fecharController.fecharChamado').prefix('api')

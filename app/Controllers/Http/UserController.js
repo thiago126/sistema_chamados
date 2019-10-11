@@ -24,18 +24,17 @@ class UserController {
         }
     }
 
-    login ({ request, auth }) {
+    async login ({ request, auth ,response}) {
         try{
-            const data = request.all()
-            return auth.attempt(data.email, data.password)
+            return auth.attempt(request.input('email'), request.input('password'))
         }catch(error){
             return response.status(400).json({
-                status:'error',
-                message: 'error'
+                status: 'error',
+                message: 'Erro ao logar'
             })
         }
-    
-  }
+        
+    }
 }
 
 module.exports = UserController
